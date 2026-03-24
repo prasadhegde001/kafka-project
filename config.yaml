@@ -1,0 +1,15 @@
+kafka:
+  bootstrap_server: "localhost:9092"
+  schema_registry_url: "http://localhost:8081" 
+
+consumers:
+  user_engagement:
+    type: "s3-sink-parquet"
+    topic: "user-info-topic"
+    group_id: "user_engagement"
+    batch_size: 100
+    flush_interval: 60
+
+s3:
+  bucket_name: bucket_name
+  topics_dir: "data_lake/bronze"
